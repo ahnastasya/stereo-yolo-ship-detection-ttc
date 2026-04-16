@@ -1,7 +1,6 @@
 # ======================
-# PYTHON DEFAULT
+# Python
 # ======================
-
 __pycache__/
 *.py[codz]
 *$py.class
@@ -12,9 +11,8 @@ __pycache__/
 # Distribution / packaging
 .Python
 build/
-develop-eggs/
 dist/
-downloads/
+develop-eggs/
 eggs/
 .eggs/
 lib/
@@ -23,11 +21,8 @@ parts/
 sdist/
 var/
 wheels/
-share/python-wheels/
 *.egg-info/
-.installed.cfg
 *.egg
-MANIFEST
 
 # Installer logs
 pip-log.txt
@@ -40,14 +35,9 @@ htmlcov/
 .coverage
 .coverage.*
 .cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-.hypothesis/
 .pytest_cache/
 
-# Environments
+# Virtual environments
 .env
 .venv
 env/
@@ -55,50 +45,40 @@ venv/
 ENV/
 
 # Jupyter
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # IDE
 .vscode/
 .idea/
 
 # ======================
-# YOLO / COMPUTER VISION
+# Computer Vision / YOLO
 # ======================
 
-# Ultralytics output
+# Ultralytics outputs
 runs/
 
-# model weights (besar)
+# Model weights (large files)
 *.pt
 *.onnx
 *.engine
 
 # ======================
-# DATA & OUTPUT
+# Outputs
 # ======================
 
-# hasil output
 results/
 output/
 *.mp4
 *.avi
 
-# gambar hasil testing (optional)
-# *.png
-# *.jpg
-
-# dataset besar (optional)
-# data/
-
 # ======================
-# DEBUG / LOG
+# Logs
 # ======================
-
 *.log
 
 # ======================
-# IMPORTANT (DO NOT IGNORE)
+# Notes
 # ======================
-
-# stereo_params.npz --> JANGAN DIIGNORE
-# karena dibutuhkan untuk depth calculation
+# stereo_params.npz is intentionally NOT ignored
+# because it is required for stereo depth estimation
