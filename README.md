@@ -1,53 +1,40 @@
-# Ship Detection and Distance Estimation Using Stereo Vision and YOLO
+# Real-Time Ship Detection and Distance Estimation using Stereo Vision and YOLO
 
-## 1. Introduction
-This project presents a real-time system for detecting ships and estimating their distance using stereo vision and deep learning. The system integrates stereo camera calibration, depth estimation, object detection, and multi-object tracking.
+## Overview
+This project implements a real-time computer vision system for detecting and tracking ships while estimating their distance using a stereo camera setup.
 
-The objective of this research is to support maritime monitoring by providing accurate distance estimation and collision risk assessment.
+The system integrates:
+- YOLOv12 for object detection
+- ByteTrack for multi-object tracking
+- Stereo fisheye camera calibration
+- Depth estimation using StereoSGBM
+- Time-to-Collision (TTC) analysis for safety monitoring
 
----
-
-## 2. System Features
-- Stereo camera calibration using fisheye model
-- Real-time disparity and depth estimation
-- Ship detection using YOLO (Ultralytics)
-- Multi-object tracking using ByteTrack
-- Distance smoothing based on object ID
-- Time-to-Collision (TTC) estimation
-- Visual warning system for collision risk
+This project is developed as part of an undergraduate thesis in maritime engineering.
 
 ---
 
-## 3. Methodology
-
-### 3.1 Stereo Vision
-Stereo images are captured from left and right cameras. The images are rectified using calibration parameters, and disparity is computed using the StereoSGBM algorithm. Depth information is obtained through reprojection.
-
-### 3.2 Object Detection
-A YOLO-based model is used to detect ships in real-time. Each detected object is represented by a bounding box.
-
-### 3.3 Multi-Object Tracking
-ByteTrack is used to assign unique IDs to detected objects, enabling consistent tracking across frames.
-
-### 3.4 Distance Estimation
-Depth values are extracted from the disparity map. Median filtering is applied within the bounding box region to reduce noise, followed by temporal smoothing per tracked object.
-
-### 3.5 Time-to-Collision (TTC)
-Velocity is estimated from changes in depth over time. TTC is computed as:
-
-TTC = Distance / Velocity
-
-### 3.6 Warning System
-The system classifies collision risk based on TTC:
-- TTC < 3 seconds: High risk
-- 3 ≤ TTC < 7 seconds: Medium risk
-- TTC ≥ 7 seconds: Low risk
+## Features
+- Real-time ship detection
+- Multi-object tracking with persistent IDs
+- Depth estimation using stereo vision
+- Distance smoothing per tracked object
+- Time-to-Collision (TTC) calculation
+- Visual warning system (Safe / Warning / Danger)
 
 ---
 
-## 4. Installation
+## System Pipeline
+1. Capture stereo image (left-right camera)
+2. Rectification using fisheye calibration
+3. Disparity computation (StereoSGBM)
+4. Depth reconstruction (3D projection)
+5. Object detection (YOLO)
+6. Object tracking (ByteTrack)
+7. Distance estimation per object
+8. TTC calculation
+9. Visualization and warning system
 
-### 4.1 Clone Repository
-```bash
-git clone https://github.com/your-username/ship-detection-stereo-vision.git
-cd ship-detection-stereo-vision
+---
+
+## Project Structure
